@@ -35,6 +35,19 @@ function ghq::post_install {
     fi
 }
 
+function ghq::find::project {
+    if [[ -x "$(command which peco)" ]]; then
+        local buffer
+        buffer=$(ghq list | \
+                     peco --layout=bottom-up)
+        # shellcheck disable=SC2164
+        cd "$(ghq root)/${buffer}"
+    fi
+}
+
+zle -N ghq::find::project
+bindkey '^P' ghq::find::project
+
 if [[ ! -x "$(command which ghq)" ]]; then
     ghq::install
 fi
