@@ -35,6 +35,16 @@ function ghq::post_install {
     fi
 }
 
+function ghq::new {
+    local REPONAME=$1
+
+    if [ -z "${REPONAME}" ]; then
+        echo 'Repository name must be specified.'
+        return
+    fi
+    ghq get "${REPONAME}"
+}
+
 function ghq::find::project {
     if [[ -x "$(command which peco)" ]]; then
         local buffer
@@ -47,6 +57,8 @@ function ghq::find::project {
 
 zle -N ghq::find::project
 bindkey '^P' ghq::find::project
+
+alias ghn=ghq::new
 
 if [[ ! -x "$(command which ghq)" ]]; then
     ghq::install
