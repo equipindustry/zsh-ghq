@@ -8,23 +8,25 @@
 #   Luis Mayta <slovacus@gmail.com>
 #
 
-LIGHT_GREEN='\033[1;32m'
-CLEAR='\033[0m'
+plugin_dir=$(dirname "${0}":A)
 
-function ghq::load {
-    if [[ -x "$(command which ghq)" ]]; then
-        eval "$(ghq --completion)"
-    fi
+# shellcheck source=/dev/null
+source "${plugin_dir}"/src/helpers/messages.zsh
+
+PACKAGE_NAME='ghq'
+
+die(){
+    message_error "$1";
 }
 
 function ghq::install {
-    echo -e "${CLEAR}${LIGHT_GREEN}Installing GHQ${CLEAR}"
+    message_info "Installing ${PACKAGE_NAME}"
     if [[ $(uname) == 'Darwin' ]]; then
         # shellcheck source=/dev/null
-        brew install ghq
+        brew install ${PACKAGE_NAME}
     else
         # shellcheck source=/dev/null
-        sudo apt install ghq
+        sudo apt install ${PACKAGE_NAME}
     fi
     ghq::post_install
 }
@@ -39,17 +41,16 @@ function ghq::new {
     local REPONAME=$1
 
     if [ -z "${REPONAME}" ]; then
-        echo 'Repository name must be specified.'
-        return
+        message_error "Repository name must be specified."
     fi
     ghq get "${REPONAME}"
 }
 
 function ghq::find::project {
-    if [[ -x "$(command which peco)" ]]; then
+    if [[ -x "$(command which fzf)" ]]; then
         local buffer
         buffer=$(ghq list | \
-                     peco --layout=bottom-up)
+                     fzf)
         # shellcheck disable=SC2164
         cd "$(ghq root)/${buffer}"
     fi
@@ -60,6 +61,6 @@ bindkey '^P' ghq::find::project
 
 alias ghn=ghq::new
 
-if [[ ! -x "$(command which ghq)" ]]; then
+if [ ! -x "$(command which ghq)" ]; then
     ghq::install
 fi
