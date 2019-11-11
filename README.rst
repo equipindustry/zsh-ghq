@@ -1,9 +1,6 @@
 zsh-ghq
 =======
 
-Build
------
-
 |Fossa Status| |Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
@@ -141,7 +138,7 @@ Feel free to contact me to discuss any issues, questions, or comments.
 Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 
 .. Links
-.. _`changelog`: docs/source/CHANGELOG.rst
+.. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: docs/source/CONTRIBUTING.rst
 
