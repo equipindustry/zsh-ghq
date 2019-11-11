@@ -21,12 +21,12 @@ tox = "*"
 ipython = "*"
 parso = "*"
 pyyaml = "*"
-
-[packages]
-pyyaml = "*"
 bumpversion = "*"
 bumplus = "*"
 pre-commit = "*"
+
+[packages]
+
 
 [scripts]
 test = "pytest"
