@@ -9,6 +9,6 @@ This file uses change log convention from `keep a CHANGELOG`_.
 +++++++++++++
 
 .. _`Unreleased`: https://github.com/luismayta/zsh-ghq/compare/0.0.0...HEAD
-.. _0.0.0: https://gitlab.com/luismayta/zsh-ghq/compare/0.0.0...0.0.0
+.. _`0.0.0`: https://gitlab.com/luismayta/zsh-ghq/compare/0.0.0...0.0.0
 
 .. _`keep a CHANGELOG`: http://keepachangelog.com/en/0.0.0/
