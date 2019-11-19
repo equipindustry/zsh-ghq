@@ -13,20 +13,20 @@ plugin_dir=$(dirname "${0}":A)
 # shellcheck source=/dev/null
 source "${plugin_dir}"/src/helpers/messages.zsh
 
-PACKAGE_NAME='ghq'
+package_name='ghq'
 
 die(){
     message_error "$1";
 }
 
 function ghq::install {
-    message_info "Installing ${PACKAGE_NAME}"
+    message_info "Installing ${package_name}"
     if [[ $(uname) == 'Darwin' ]]; then
         # shellcheck source=/dev/null
-        brew install ${PACKAGE_NAME}
+        brew install ${package_name}
     else
         # shellcheck source=/dev/null
-        sudo apt install ${PACKAGE_NAME}
+        sudo apt install ${package_name}
     fi
     ghq::post_install
 }
