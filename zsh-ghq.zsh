@@ -21,18 +21,15 @@ die(){
 
 function ghq::install {
     message_info "Installing ${package_name}"
-    if [[ $(uname) == 'Darwin' ]]; then
-        # shellcheck source=/dev/null
+    if [ -x "$(command which brew)" ]; then
         brew install ${package_name}
-    else
-        # shellcheck source=/dev/null
-        sudo apt install ${package_name}
     fi
     ghq::post_install
 }
 
 function ghq::post_install {
-    if [[ -x "$(command which git)" ]]; then
+
+    if [ -x "$(command which git)" ]; then
         git config --global ghq.root "${PROJECTS}"
     fi
 }
