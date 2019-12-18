@@ -12,23 +12,19 @@ GHQ_CACHE_DIR="${HOME}/.cache/ghq"
 GHQ_CACHE_NAME="ghq.txt"
 GHQ_CACHE_PROJECT="${GHQ_CACHE_DIR}/${GHQ_CACHE_NAME}"
 
-plugin_dir=$(dirname "${0}":A)
-
-# shellcheck source=/dev/null
-source "${plugin_dir}"/src/helpers/messages.zsh
-
-package_name='ghq'
+ghq_package_name='ghq'
 
 function ghq::install {
-    message_info "Installing ${package_name}"
-    if [ -x "$(command which brew)" ]; then
-        brew install ${package_name}
+    message_info "Installing ${ghq_package_name}"
+    if type -p brew > /dev/null; then
+        brew install ${ghq_package_name}
     fi
+
     ghq::post_install
 }
 
 function ghq::post_install {
-    if [ -x "$(command which git)" ]; then
+    if type -p git > /dev/null; then
         git config --global ghq.root "${PROJECTS}"
     fi
 }
@@ -65,7 +61,7 @@ function ghq::new {
 }
 
 function ghq::find::project {
-    if [ -x "$(command which fzf)" ]; then
+    if type -p fzf > /dev/null; then
         local buffer
         buffer=$(ghq::projects::list | fzf )
         if [ -n "${buffer}" ]; then
