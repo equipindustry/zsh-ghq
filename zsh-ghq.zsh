@@ -8,16 +8,16 @@
 #   Luis Mayta <slovacus@gmail.com>
 #
 
+GHQ_CACHE_DIR="${HOME}/.cache/ghq"
+GHQ_CACHE_NAME="ghq.txt"
+GHQ_CACHE_PROJECT="${GHQ_CACHE_DIR}/${GHQ_CACHE_NAME}"
+
 plugin_dir=$(dirname "${0}":A)
 
 # shellcheck source=/dev/null
 source "${plugin_dir}"/src/helpers/messages.zsh
 
 package_name='ghq'
-
-die(){
-    message_error "$1";
-}
 
 function ghq::install {
     message_info "Installing ${package_name}"
@@ -28,9 +28,30 @@ function ghq::install {
 }
 
 function ghq::post_install {
-
     if [ -x "$(command which git)" ]; then
         git config --global ghq.root "${PROJECTS}"
+    fi
+}
+
+function ghq::cache::clear {
+    [ -e "${GHQ_CACHE_PROJECT}" ] && rm -rf "${GHQ_CACHE_PROJECT}"
+}
+
+function ghq::cache::list {
+    [ -e "${GHQ_CACHE_PROJECT}" ] && cat "${GHQ_CACHE_PROJECT}"
+}
+
+function ghq::cache::create {
+    [ -e "${GHQ_CACHE_DIR}" ] || mkdir -p "${GHQ_CACHE_DIR}"
+    ghq list > "${GHQ_CACHE_PROJECT}"
+}
+
+function ghq::projects::list {
+    if [ ! -e "${GHQ_CACHE_PROJECT}" ]; then
+        ghq::cache::create
+        ghq::cache::list
+    else
+        ghq::cache::list
     fi
 }
 
@@ -44,12 +65,13 @@ function ghq::new {
 }
 
 function ghq::find::project {
-    if [[ -x "$(command which fzf)" ]]; then
+    if [ -x "$(command which fzf)" ]; then
         local buffer
-        buffer=$(ghq list | \
-                     fzf)
-        # shellcheck disable=SC2164
-        cd "$(ghq root)/${buffer}"
+        buffer=$(ghq::projects::list | fzf )
+        if [ -n "${buffer}" ]; then
+            # shellcheck disable=SC2164
+            cd "$(ghq root)/${buffer}"
+        fi
     fi
 }
 
