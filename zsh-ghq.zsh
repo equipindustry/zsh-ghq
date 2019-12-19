@@ -58,6 +58,7 @@ function ghq::new {
         message_error "Repository name must be specified."
     fi
     ghq get "${REPONAME}"
+    ghq::cache::clear
 }
 
 function ghq::find::project {
