@@ -157,12 +157,13 @@ function ghq::projects::list {
 }
 
 function ghq::new {
-    local REPONAME=$1
+    local reponame
+    reponame="${1}"
 
-    if [ -z "${REPONAME}" ]; then
+    if [ -z "${reponame}" ]; then
         message_error "Repository name must be specified."
     fi
-    ghq get "${REPONAME}"
+    ghq get "${reponame}"
     ghq::cache::clear
 }
 
@@ -182,6 +183,6 @@ bindkey '^P' ghq::find::project
 
 alias ghn=ghq::new
 
-if [ ! -x "$(command which ghq)" ]; then
+if ! type -p ghq > /dev/null; then
     ghq::install
 fi
