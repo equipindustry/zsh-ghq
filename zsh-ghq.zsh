@@ -12,9 +12,9 @@ GHQ_ROOT=$(ghq root)
 GHQ_CACHE_DIR="${HOME}/.cache/ghq"
 GHQ_CACHE_NAME="ghq.txt"
 GHQ_CACHE_PROJECT="${GHQ_CACHE_DIR}/${GHQ_CACHE_NAME}"
+GITHUB_USER="$(git config github.user)"
 
 ghq_package_name='ghq'
-
 
 function ghq::is_dir {
     local target_dir
@@ -158,6 +158,7 @@ function ghq::projects::list {
 # reponame
 function ghq::new {
     local repository
+    local repository_path
     local is_repository
     local list_types_repositories
     list_types_repositories=(git ssh https)
@@ -170,10 +171,14 @@ function ghq::new {
 
     if [ "${is_repository}" -eq 1 ]; then
         ghq get "${repository}"
-    elif [ "${is_repository}" -eq 0 ]; then
-        ghq create "${repository}"
+        ghq::cache::clear
+        return
     fi
+
+    repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
+    ghq create "${repository}"
     ghq::cache::clear
+    cd "${repository_path}" || cd - && git flow init -d
 }
 
 function ghq::find::project {
