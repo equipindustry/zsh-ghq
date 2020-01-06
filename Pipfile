@@ -27,7 +27,6 @@ pre-commit = "*"
 
 [packages]
 
-
 [scripts]
 test = "pytest"
 
