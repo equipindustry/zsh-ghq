@@ -90,7 +90,10 @@ function ghq::migrate {
 
 function ghq::dependences::check {
     if ! type -p async_init > /dev/null; then
-        message_error "is neccesary implement async_init"
+        message_warning "is neccesary implement async_init."
+    fi
+    if [ -z "${GITHUB_USER}" ]; then
+        message_warning "You should set 'git config --global github.user'."
     fi
 }
 
@@ -200,3 +203,5 @@ alias ghn=ghq::new
 if ! type -p ghq > /dev/null; then
     ghq::install
 fi
+
+ghq::dependences::check
