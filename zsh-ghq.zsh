@@ -12,6 +12,7 @@ GHQ_ROOT=$(ghq root)
 GHQ_CACHE_DIR="${HOME}/.cache/ghq"
 GHQ_CACHE_NAME="ghq.txt"
 GHQ_CACHE_PROJECT="${GHQ_CACHE_DIR}/${GHQ_CACHE_NAME}"
+GHQ_REGEX_IS_REPOSITORY="^(git:|git@|ssh://|http://|https://)"
 GITHUB_USER="$(git config github.user)"
 
 ghq_package_name='ghq'
@@ -163,10 +164,8 @@ function ghq::new {
     local repository
     local repository_path
     local is_repository
-    local list_types_repositories
-    list_types_repositories=(git ssh https)
     repository="${1}"
-    is_repository=$(printf "%s\\n" "${list_types_repositories[@]}" | grep -c "^${repository}")
+    is_repository=$(echo "${repository}" | grep -cE "${GHQ_REGEX_IS_REPOSITORY}")
 
     if [ -z "${repository}" ]; then
         message_error "Repository name must be specified."
