@@ -85,7 +85,6 @@ repos:
       - id: requirements-txt-fixer
       - id: check-symlinks
       - id: name-tests-test
-        exclude: (src/tests/steps/*)
         args:
           - --django
       - id: file-contents-sorter
