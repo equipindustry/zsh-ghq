@@ -175,13 +175,13 @@ function ghq::new {
     if [ "${is_repository}" -eq 1 ]; then
         ghq get "${repository}"
         ghq::cache::clear
-        return
+    else
+        repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
+        ghq create "${repository}"
+        ghq::cache::clear
+        cd "${repository_path}" || cd - && git flow init -d
     fi
 
-    repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
-    ghq create "${repository}"
-    ghq::cache::clear
-    cd "${repository_path}" || cd - && git flow init -d
 }
 
 function ghq::find::project {
