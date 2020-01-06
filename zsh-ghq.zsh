@@ -146,7 +146,6 @@ function ghq::cache::create::factory {
     fi
 }
 
-
 function ghq::projects::list {
     if [ ! -e "${GHQ_CACHE_PROJECT}" ]; then
         ghq::cache::create::factory
@@ -156,14 +155,24 @@ function ghq::projects::list {
     fi
 }
 
+# reponame
 function ghq::new {
-    local reponame
-    reponame="${1}"
+    local repository
+    local is_repository
+    local list_types_repositories
+    list_types_repositories=(git ssh https)
+    repository="${1}"
+    is_repository=$(printf "%s\\n" "${list_types_repositories[@]}" | grep -c "^${repository}")
 
-    if [ -z "${reponame}" ]; then
+    if [ -z "${repository}" ]; then
         message_error "Repository name must be specified."
     fi
-    ghq get "${reponame}"
+
+    if [ "${is_repository}" -eq 1 ]; then
+        ghq get "${repository}"
+    elif [ "${is_repository}" -eq 0 ]; then
+        ghq create "${repository}"
+    fi
     ghq::cache::clear
 }
 
