@@ -48,6 +48,20 @@
       "type": "library",
       "description": "A cookiecutter for go library",
       "repository": "gh:theodesp/cookiecutter-go-library"
+    },
+    {
+      "name": "go gin",
+      "author": "@slovacus",
+      "type": "project",
+      "description": "This sets up a Golang Gin web application with a health check",
+      "repository": "gh:shokunin/cookiecutter-golang-gin"
+    },
+    {
+      "name": "go project",
+      "author": "@slovacus",
+      "type": "project",
+      "description": "This sets up a Golang web project",
+      "repository": "gh:lacion/cookiecutter-golang"
     }
   ]
 }
