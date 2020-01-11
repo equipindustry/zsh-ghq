@@ -26,60 +26,9 @@ source "${GHQ_SRC_DIR}"/base.zsh
 # shellcheck source=src/cache.zsh
 source "${GHQ_SRC_DIR}"/cache.zsh
 
-function ghq::get_remote_path_from_url {
-    # git remote url may be
-    # ssh://git@hoge.host:22/var/git/projects/Project
-    # git@github.com:motemen/ghq.git
-    # (normally considering only github is enough?)
-    # remove ^.*://
-    # => remove ^hoge@ (usually git@ ?)
-    #  => replace : => /
-    #   => remove .git$
-    local remote_path
-    remote_path=$(echo "${1}" | sed -e 's!^.*://!!; s!^.*@!!; s!:!/!; s!\.git$!!;')
-    echo "${remote_path}"
-}
+# shellcheck source=src/migrate.zsh
+source "${GHQ_SRC_DIR}"/migrate.zsh
 
-function ghq::migrate::move {
-    local target_dir
-    local remote_path
-    local new_repo_dir
-    target_dir="${1}"
-    remote_path="${2}"
-
-    message_info "move this repository to ${GHQ_ROOT}/${remote_path}"
-
-    new_repo_dir="${GHQ_ROOT}/${remote_path}"
-
-    if [ -e "${new_repo_dir}" ]; then
-        message_error "${new_repo_dir} already exists!!!!"
-    fi
-    mkdir -p "${new_repo_dir%/*}"
-    mv "${target_dir%/}" "${new_repo_dir}"
-    message_success "${new_repo_dir} migrate!!!!"
-}
-
-# migrate repository path to root path
-function ghq::migrate {
-    local target_dir
-    local origin_path
-    local migrate_path
-
-    target_dir=$1
-    if [ ! "$(ghq::is_dir "${target_dir}")" ]; then
-        message_info "${target_dir} not is directory"
-    fi
-
-    origin_path=$(ghq::git::get_origin_path "${target_dir}")
-
-    if [ -z "${origin_path}" ]; then
-        message_info "not found repository remote"
-    fi
-
-    migrate_path="$(ghq::get_remote_path_from_url "${origin_path}")"
-
-    ghq::migrate::move "${target_dir}" "${migrate_path}"
-}
 
 function ghq::dependences::check {
     if ! type -p async_init > /dev/null; then

@@ -1,6 +1,20 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
+function ghq::get_remote_path_from_url {
+    # git remote url may be
+    # ssh://git@hoge.host:22/var/git/projects/Project
+    # git@github.com:motemen/ghq.git
+    # (normally considering only github is enough?)
+    # remove ^.*://
+    # => remove ^hoge@ (usually git@ ?)
+    #  => replace : => /
+    #   => remove .git$
+    local remote_path
+    remote_path=$(echo "${1}" | sed -e 's!^.*://!!; s!^.*@!!; s!:!/!; s!\.git$!!;')
+    echo "${remote_path}"
+}
+
 function ghq::is_dir {
     local target_dir
     target_dir="${1}"
