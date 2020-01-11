@@ -22,7 +22,9 @@ function cookiecutter::find {
                     | perl -pe 'chomp' \
                     | sed 's/\"//g'
                 )
-    cookiecutter "${command_value}"
+    if [ -n "${command_value}" ]; then
+        echo "${command_value}"
+    fi
 }
 
 if ! type -p cookiecutter > /dev/null; then cookiecutter::install; fi
