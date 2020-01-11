@@ -29,6 +29,9 @@ source "${GHQ_SRC_DIR}"/cache.zsh
 # shellcheck source=src/migrate.zsh
 source "${GHQ_SRC_DIR}"/migrate.zsh
 
+# shellcheck source=src/cookiecutter.zsh
+source "${GHQ_SRC_DIR}"/cookiecutter.zsh
+
 
 function ghq::dependences::check {
     if ! type -p async_init > /dev/null; then
