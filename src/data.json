@@ -13,6 +13,34 @@
       "type": "template",
       "description": "template for base project",
       "repository": "gh:luismayta/cookiecutter-base"
+    },
+    {
+      "name": "cookiecutter-node-typescript",
+      "author": "@israelgp24",
+      "type": "template",
+      "description": "template for base project",
+      "repository": "gh:sagi/cookiecutter-node-typescript"
+    },
+    {
+      "name": "cookiecutter-npm",
+      "author": "@israelgp24",
+      "type": "template",
+      "description": "template for base project",
+      "repository": "gh:rrwen/cookiecutter-npm"
+    },
+    {
+      "name": "node_starter",
+      "author": "@israelgp24",
+      "type": "template",
+      "description": "template for base project",
+      "repository": "gh:jhillgithub/node_starter"
+    },
+    {
+      "name": "node-mongo-cookiecutter",
+      "author": "@israelgp24",
+      "type": "template",
+      "description": "template for base project",
+      "repository": "gh:binary-sort/node-mongo-cookiecutter"
     }
   ]
 }
