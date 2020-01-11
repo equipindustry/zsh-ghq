@@ -118,6 +118,27 @@
       "type": "module",
       "description": "template for terraform module",
       "repository": "gh:FGtatsuro/cookiecutter-terraform-module"
+    },
+    {
+      "name": "docker image",
+      "author": "@slovacus",
+      "type": "image",
+      "description": "template for docker image",
+      "repository": "gh:equipindustry/cookiecutter-docker"
+    },
+    {
+      "name": "docker image",
+      "author": "@slovacus",
+      "type": "image",
+      "description": "template for docker image",
+      "repository": "gh:thornycrackers/cookiecutter_docker"
+    },
+    {
+      "name": "docker image",
+      "author": "@slovacus",
+      "type": "image",
+      "description": "template for docker image",
+      "repository": "gh:practicalci/cookiecutter-docker"
     }
   ]
 }
