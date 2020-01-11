@@ -139,6 +139,27 @@
       "type": "image",
       "description": "template for docker image",
       "repository": "gh:practicalci/cookiecutter-docker"
+    },
+    {
+      "name": "Cookiecutter Pylibrary",
+      "author": "@christianquispe",
+      "type": "template",
+      "description": "template for Python libraries",
+      "repository": "gh:ionelmc/cookiecutter-pylibrary"
+    },
+    {
+      "name": "Cookiecutter Django",
+      "author": "@christianquispe",
+      "type": "Framework",
+      "description": "is a framework for jumpstarting production-ready Django projects quickly",
+      "repository": "gh:pydanny/cookiecutter-django"
+    },
+    {
+      "name": "Cookiecutter Serverless Aws Lambda",
+      "author": "@christianquispe",
+      "type": "Cookiecutter template",
+      "description": "setup AWS lambda development with serverless framework",
+      "repository": "gh:hypoport/cookiecutter-serverless-aws-lambda"
     }
   ]
 }
