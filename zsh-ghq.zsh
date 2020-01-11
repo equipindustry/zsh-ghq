@@ -72,11 +72,16 @@ function ghq::new {
     local repository
     local repository_path
     local is_repository
+    local repository_cookiecutter
     repository="${1}"
     is_repository=$(echo "${repository}" | grep -cE "${GHQ_REGEX_IS_REPOSITORY}")
 
     if [ -z "${repository}" ]; then
-        message_error "Repository name must be specified."
+        repository_path="$(ghq root)/github.com/${GITHUB_USER}/"
+        repository_cookiecutter="$(cookiecutter::find)"
+        cd "${repository_path}" || cd - && cookiecutter "${repository_cookiecutter}"
+        ghq::cache::clear
+        return
     fi
 
     if [ "${is_repository}" -eq 1 ]; then
