@@ -39,8 +39,15 @@
       "name": "api server",
       "author": "@slovacus",
       "type": "api template",
-      "description": "A cookiecutter for api template",
+      "description": "A cookiecutter for api template with golang",
       "repository": "gh:Esaws/golang-api-template"
+    },
+    {
+      "name": "go library",
+      "author": "@slovacus",
+      "type": "library",
+      "description": "A cookiecutter for go library",
+      "repository": "gh:theodesp/cookiecutter-go-library"
     }
   ]
 }
