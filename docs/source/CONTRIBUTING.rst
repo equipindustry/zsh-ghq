@@ -140,5 +140,5 @@ Try to keep history as linear as possible using a `rebase` merge strategy.
 
 #. Delete merged Branch
 
-.. _Issue: https://github.com/luismayta/zsh-ghq/issues
-.. _Pull Request: https://github.com/luismayta/zsh-ghq/pulls
+.. _Issue: https://github.com/equipindustry/zsh-ghq/issues
+.. _Pull Request: https://github.com/equipindustry/zsh-ghq/pulls

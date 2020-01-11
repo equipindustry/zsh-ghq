@@ -4,9 +4,9 @@ zsh-ghq
 |Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
-:Web: https://github.com/luismayta/zsh-ghq
-:Download: https://github.com/luismayta/zsh-ghq
-:Source: https://github.com/luismayta/zsh-ghq
+:Web: https://github.com/equipindustry/zsh-ghq
+:Download: https://github.com/equipindustry/zsh-ghq
+:Source: https://github.com/equipindustry/zsh-ghq
 :Keywords: zsh-ghq
 
 .. contents:: Table of Contents:
@@ -40,7 +40,7 @@ plugin by doing the following:
 1. Go to your oh-my-zsh custom plugins directory -
    ``cd ~/.oh-my-zsh/custom/plugins``
 2. Clone the plugin
-   ``bash   git clone https://github.com/luismayta/zsh-ghq``\ bash
+   ``bash   git clone https://github.com/equipindustry/zsh-ghq``\ bash
 3. Edit your ``.zshrc`` and add
    ``plugins=( ... zsh-ghq )`` to your list of
    plugins
@@ -52,10 +52,10 @@ plugin by doing the following:
 If you're using `Antigen <https://github.com/zsh-lovers/antigen>`__,
 install this plugin by doing the following:
 
-1. Add ``antigen bundle luismayta/zsh-ghq`` to your
+1. Add ``antigen bundle equipindustry/zsh-ghq`` to your
    ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
-   run ``antigen bundle luismayta/zsh-ghq`` in a
+   run ``antigen bundle equipindustry/zsh-ghq`` in a
    running zsh session.
 3. Enjoy!
 
@@ -65,10 +65,10 @@ install this plugin by doing the following:
 If you're using `Antigen <https://github.com/getantibody/antibody>`__,
 install this plugin by doing the following:
 
-1. Add ``antibody bundle luismayta/zsh-ghq`` to your
+1. Add ``antibody bundle equipindustry/zsh-ghq`` to your
    ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
-   run ``antibody bundle luismayta/zsh-ghq`` in a
+   run ``antibody bundle equipindustry/zsh-ghq`` in a
    running zsh session.
 3. Enjoy!
 
@@ -140,14 +140,14 @@ Feel free to contact me to discuss any issues, questions, or comments.
 
 |linkedin| |beacon| |made|
 
-Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
+Made with :coffee: and :pizza: by `luis mayta`_ and `equipindustry`_.
 
 .. Links
 .. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: docs/source/CONTRIBUTING.rst
 
-.. _`hadenlabs`: https://github.com/hadenlabs
+.. _`equipindustry`: https://github.com/equipindustry
 .. _`luis mayta`: https://github.com/luismayta
 
 
@@ -159,24 +159,24 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 .. _`Website`: http://luismayta.github.io
 .. _`PGP`: https://keybase.io/luismayta/pgp_keys.asc
 
-.. |Build Status| image:: https://travis-ci.org/luismayta/zsh-ghq.svg
-   :target: https://travis-ci.org/luismayta/zsh-ghq
-.. |GitHub issues| image:: https://img.shields.io/github/issues/luismayta/zsh-ghq.svg
-   :target: https://github.com/luismayta/zsh-ghq/issues
+.. |Build Status| image:: https://travis-ci.org/equipindustry/zsh-ghq.svg
+    :target: https://travis-ci.org/equipindustry/zsh-ghq
+.. |GitHub issues| image:: https://img.shields.io/github/issues/equipindustry/zsh-ghq.svg
+    :target: https://github.com/equipindustry/zsh-ghq/issues
 .. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
-   :target: LICENSE
+    :target: LICENSE
 
 .. Team:
 .. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
-   :target: https://github.com/luismayta
+    :target: https://github.com/luismayta
 
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
-   :target: http://pe.linkedin.com/in/luismayta
-.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/luismayta/zsh-ghq/readme
-   :target: https://github.com/luismayta/zsh-ghq
+    :target: http://pe.linkedin.com/in/luismayta
+.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/equipindustry/zsh-ghq/readme
+    :target: https://github.com/equipindustry/zsh-ghq
 .. |made| image:: https://img.shields.io/badge/Made%20with-Zsh-1f425f.svg
-   :target: http://www.zsh.org
+    :target: http://www.zsh.org
 
 .. Dependences:
 

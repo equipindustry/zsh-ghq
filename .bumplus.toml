@@ -17,9 +17,9 @@ replace = """
 
 [[files."CHANGELOG.rst"]]
 search = """
-.. _`Unreleased`: https://github.com/luismayta/zsh-ghq/compare/{{old_version}}...HEAD
+.. _`Unreleased`: https://github.com/equipindustry/zsh-ghq/compare/{{old_version}}...HEAD
 """
 replace = """
-.. _`Unreleased`: https://github.com/luismayta/zsh-ghq/compare/{{new_version}}...HEAD
-.. _`{{new_version}}`: https://github.com/luismayta/zsh-ghq/compare/{{old_version}}...{{new_version}}
+.. _`Unreleased`: https://github.com/equipindustry/zsh-ghq/compare/{{new_version}}...HEAD
+.. _`{{new_version}}`: https://github.com/equipindustry/zsh-ghq/compare/{{old_version}}...{{new_version}}
 """
