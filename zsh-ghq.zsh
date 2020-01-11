@@ -8,6 +8,7 @@
 #   Luis Mayta <slovacus@gmail.com>
 #
 
+# shellcheck disable=SC2034  # Unused variables left for readability
 GHQ_ROOT=$(ghq root)
 GHQ_ROOT_DIR=$(dirname "$0")
 GHQ_SRC_DIR="${GHQ_ROOT_DIR}"/src
@@ -20,16 +21,16 @@ GITHUB_USER="$(git config github.user)"
 
 ghq_package_name='ghq'
 
-# shellcheck source=src/base.zsh
+# shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/base.zsh
 
-# shellcheck source=src/cache.zsh
+# shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/cache.zsh
 
-# shellcheck source=src/migrate.zsh
+# shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/migrate.zsh
 
-# shellcheck source=src/cookiecutter.zsh
+# shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/cookiecutter.zsh
 
 
