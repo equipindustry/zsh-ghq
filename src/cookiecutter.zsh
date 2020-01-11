@@ -1,6 +1,8 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
+# shellcheck disable=SC2154  # Unused variables left for readability
+
 function cookiecutter::install {
     message_info "Installing cookiecutter for ${ghq_package_name}"
     if type -p pip > /dev/null; then
