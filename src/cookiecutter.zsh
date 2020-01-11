@@ -11,7 +11,7 @@ function cookiecutter::install {
 
 function cookiecutter::list {
     # shellcheck disable=SC2002
-    cat "${GHQ_SRC_DIR}"/data.json | jq '.projects[] | "\(.name) | \(.type) | \(.description) | \(.repository)"'
+    cat "${GHQ_SRC_DIR}"/data.json | jq '.projects[] | "\(.name) | \(.author) | \(.type) | \(.description) | \(.repository)"'
 }
 
 function cookiecutter::find {
