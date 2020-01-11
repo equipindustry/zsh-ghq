@@ -13,6 +13,20 @@
       "type": "template",
       "description": "template for base project",
       "repository": "gh:luismayta/cookiecutter-base"
+    },
+    {
+      "name": "golang service",
+      "author": "@slovacus",
+      "type": "service golang",
+      "description": "template golang service",
+      "repository": "gh:larsyencken/cookiecutter-go-service"
+    },
+    {
+      "name": "golang lambda",
+      "author": "@slovacus",
+      "type": "lambda golang",
+      "description": "cookiecutter-golambda is an AWS Lambda function generator",
+      "repository": "gh:Ryanair/cookiecutter-golambda"
     }
   ]
 }
