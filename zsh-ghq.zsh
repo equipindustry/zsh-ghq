@@ -9,30 +9,22 @@
 #
 
 GHQ_ROOT=$(ghq root)
+GHQ_ROOT_DIR=$(dirname "$0")
+GHQ_SRC_DIR="${GHQ_ROOT_DIR}"/src
 GHQ_CACHE_DIR="${HOME}/.cache/ghq"
 GHQ_CACHE_NAME="ghq.txt"
 GHQ_CACHE_PROJECT="${GHQ_CACHE_DIR}/${GHQ_CACHE_NAME}"
+
 GHQ_REGEX_IS_REPOSITORY="^(git:|git@|ssh://|http://|https://)"
 GITHUB_USER="$(git config github.user)"
 
 ghq_package_name='ghq'
 
-function ghq::is_dir {
-    local target_dir
-    target_dir="${1}"
-    if [ ! -d "${target_dir}" ]; then
-        return 0
-    fi
-    return 1
-}
+# shellcheck source=src/base.zsh
+source "${GHQ_SRC_DIR}"/base.zsh
 
-function ghq::git::get_origin_path {
-    local target_dir
-    local origin_path
-    target_dir="${1}"
-    origin_path=$(cd "${target_dir}" || exit; git config --get-regexp remote.origin.url | cut -d ' ' -f 2)
-    echo "${origin_path}"
-}
+# shellcheck source=src/cache.zsh
+source "${GHQ_SRC_DIR}"/cache.zsh
 
 function ghq::get_remote_path_from_url {
     # git remote url may be
@@ -113,42 +105,6 @@ function ghq::post_install {
     fi
 }
 
-function ghq::cache::clear {
-    [ -e "${GHQ_CACHE_PROJECT}" ] && rm -rf "${GHQ_CACHE_PROJECT}"
-    ghq::cache::create::factory
-}
-
-function ghq::cache::list {
-    [ -e "${GHQ_CACHE_PROJECT}" ] && cat "${GHQ_CACHE_PROJECT}"
-}
-
-function ghq::cache::create {
-    [ -e "${GHQ_CACHE_DIR}" ] || mkdir -p "${GHQ_CACHE_DIR}"
-    ghq list > "${GHQ_CACHE_PROJECT}"
-}
-
-function ghq::cache::create::async {
-    async_init
-    # Start a worker that will report job completion
-    async_start_worker ghq_worker_cache_make -n
-    # Register our callback function to run when the job completes
-    async_register_callback ghq_worker_cache_make ghq::completed::callback
-    # Start the job
-    async_job ghq_worker_cache_make ghq::cache::create
-}
-
-# Define a function to process the result of the job
-function ghq::completed::callback {
-    async_job ghq_worker_cache_make ghq::cache::create
-}
-
-function ghq::cache::create::factory {
-    if type -p async_init > /dev/null; then
-        ghq::cache::create::async
-    else
-        ghq::cache::create
-    fi
-}
 
 function ghq::projects::list {
     if [ ! -e "${GHQ_CACHE_PROJECT}" ]; then
