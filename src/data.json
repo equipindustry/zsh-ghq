@@ -15,6 +15,54 @@
       "repository": "gh:luismayta/cookiecutter-base"
     },
     {
+      "name": "golang service",
+      "author": "@slovacus",
+      "type": "service golang",
+      "description": "template golang service",
+      "repository": "gh:larsyencken/cookiecutter-go-service"
+    },
+    {
+      "name": "golang lambda",
+      "author": "@slovacus",
+      "type": "lambda golang",
+      "description": "cookiecutter-golambda is an AWS Lambda function generator",
+      "repository": "gh:Ryanair/cookiecutter-golambda"
+    },
+    {
+      "name": "golang server",
+      "author": "@slovacus",
+      "type": "server golang",
+      "description": "A cookiecutter template for starting a new server in Go",
+      "repository": "gh:theodesp/cookiecutter-go-server"
+    },
+    {
+      "name": "api server",
+      "author": "@slovacus",
+      "type": "api template",
+      "description": "A cookiecutter for api template with golang",
+      "repository": "gh:Esaws/golang-api-template"
+    },
+    {
+      "name": "go library",
+      "author": "@slovacus",
+      "type": "library",
+      "description": "A cookiecutter for go library",
+      "repository": "gh:theodesp/cookiecutter-go-library"
+    },
+    {
+      "name": "go gin",
+      "author": "@slovacus",
+      "type": "project",
+      "description": "This sets up a Golang Gin web application with a health check",
+      "repository": "gh:shokunin/cookiecutter-golang-gin"
+    },
+    {
+      "name": "go project",
+      "author": "@slovacus",
+      "type": "project",
+      "description": "This sets up a Golang web project",
+      "repository": "gh:lacion/cookiecutter-golang"
+    },
       "name": "cookiecutter-node-typescript",
       "author": "@israelgp24",
       "type": "template",
