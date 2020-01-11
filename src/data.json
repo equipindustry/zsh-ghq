@@ -90,6 +90,34 @@
       "type": "template",
       "description": "template for base project",
       "repository": "gh:binary-sort/node-mongo-cookiecutter"
+    },
+    {
+      "name": "terraform module",
+      "author": "@slovacus",
+      "type": "module",
+      "description": "template for terraform module",
+      "repository": "gh:DualSpark/cookiecutter-tf-module"
+    },
+    {
+      "name": "terraform module",
+      "author": "@slovacus",
+      "type": "module",
+      "description": "template for terraform module",
+      "repository": "gh:plus3it/cookiecutter-tfmodule"
+    },
+    {
+      "name": "terraform module",
+      "author": "@slovacus",
+      "type": "module",
+      "description": "template for terraform module",
+      "repository": "gh:equipindustry/cookiecutter-terraform-module"
+    },
+    {
+      "name": "terraform module",
+      "author": "@slovacus",
+      "type": "module",
+      "description": "template for terraform module",
+      "repository": "gh:FGtatsuro/cookiecutter-terraform-module"
     }
   ]
 }
