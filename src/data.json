@@ -27,6 +27,20 @@
       "type": "lambda golang",
       "description": "cookiecutter-golambda is an AWS Lambda function generator",
       "repository": "gh:Ryanair/cookiecutter-golambda"
+    },
+    {
+      "name": "golang server",
+      "author": "@slovacus",
+      "type": "server golang",
+      "description": "A cookiecutter template for starting a new server in Go",
+      "repository": "gh:theodesp/cookiecutter-go-server"
+    },
+    {
+      "name": "api server",
+      "author": "@slovacus",
+      "type": "api template",
+      "description": "A cookiecutter for api template",
+      "repository": "gh:Esaws/golang-api-template"
     }
   ]
 }
