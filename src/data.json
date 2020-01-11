@@ -63,6 +63,7 @@
       "description": "This sets up a Golang web project",
       "repository": "gh:lacion/cookiecutter-golang"
     },
+    {
       "name": "cookiecutter-node-typescript",
       "author": "@israelgp24",
       "type": "template",
