@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "name": "next template",
+      "type": "template",
+      "description": "template for generate next",
+      "repository": "gh:equipindustry/cookiecutter-next-redux-saga"
+    },
+    {
+      "name": "cookiecutter base",
+      "type": "template",
+      "description": "template for base project",
+      "repository": "gh:luismayta/cookiecutter-base"
+    }
+  ]
+}
