@@ -160,6 +160,13 @@
       "type": "Cookiecutter template",
       "description": "setup AWS lambda development with serverless framework",
       "repository": "gh:hypoport/cookiecutter-serverless-aws-lambda"
+    },
+    {
+      "name": "React TS",
+      "author": "@aireck2",
+      "type": "template",
+      "description": "template for React TS",
+      "repository": "gh:Ell/cookiecutter-parcel-typescript-react"
     }
   ]
 }
