@@ -167,6 +167,13 @@
       "type": "template",
       "description": "template for React TS",
       "repository": "gh:Ell/cookiecutter-parcel-typescript-react"
+    },
+    {
+      "name": "Zsh PLugin",
+      "author": "@slovacus",
+      "type": "template",
+      "description": "template for make zsh plugin",
+      "repository": "gh:hadenlabs/cookiecutter-zsh-plugin"
     }
   ]
 }
