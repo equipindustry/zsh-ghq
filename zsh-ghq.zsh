@@ -80,6 +80,10 @@ function ghq::new {
     if [ -z "${repository}" ]; then
         repository_path="$(ghq root)/github.com/${GITHUB_USER}/"
         repository_cookiecutter="$(cookiecutter::find)"
+        if [ -z "${repository_cookiecutter}" ]; then
+            message_warning "Please Select one Project"
+            return
+        fi
         cd "${repository_path}" || cd - && cookiecutter "${repository_cookiecutter}"
         ghq::cache::clear
         return
@@ -88,13 +92,13 @@ function ghq::new {
     if [ "${is_repository}" -eq 1 ]; then
         ghq get "${repository}"
         ghq::cache::clear
-    else
-        repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
-        ghq create "${repository}"
-        ghq::cache::clear
-        cd "${repository_path}" || cd - && git flow init -d
+        return
     fi
 
+    repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
+    ghq create "${repository}"
+    ghq::cache::clear
+    cd "${repository_path}" || cd - && git flow init -d
 }
 
 function ghq::find::project {
