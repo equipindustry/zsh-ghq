@@ -13,7 +13,10 @@ function cookiecutter::install {
 
 function cookiecutter::list {
     # shellcheck disable=SC2002
-    cat "${GHQ_SRC_DIR}"/data.json | jq '.projects[] | "\(.name) | \(.author) | \(.type) | \(.description) | \(.repository)"'
+    cat "${GHQ_SRC_DIR}"/data.json \
+        | jq -r '.projects[] | [.name, .type, .description, .repository] | @csv' \
+        | sed 's/"//g' \
+        | awk 'BEGIN{FS=","; OFS="\t"} {print $1,$2,$3,$4,$5}'
 }
 
 function cookiecutter::find {
@@ -22,8 +25,8 @@ function cookiecutter::find {
                     | fzf \
                     | awk '{print $(NF -0)}' \
                     | perl -pe 'chomp' \
-                    | sed 's/\"//g'
                 )
+    echo "${tag}" && echo -e "${tag}" | ghead -c -1 | pbcopy
     if [ -n "${command_value}" ]; then
         echo "${command_value}"
     fi
