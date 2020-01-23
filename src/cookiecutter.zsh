@@ -6,7 +6,7 @@
 function cookiecutter::install {
     message_info "Installing cookiecutter for ${ghq_package_name}"
     if type -p pip > /dev/null; then
-        pip install --user cookiecutter
+        python -m pip install --user cookiecutter
         message_success "Installed cookiecutter for ${ghq_package_name}"
     fi
 }
