@@ -63,9 +63,9 @@ function ghq::projects::list {
     if [ ! -e "${GHQ_CACHE_PROJECT}" ]; then
         ghq::cache::create::factory
         ghq::cache::list
-    else
-        ghq::cache::list
+        return
     fi
+    ghq::cache::list
 }
 
 # reponame
