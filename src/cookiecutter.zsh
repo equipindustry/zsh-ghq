@@ -25,9 +25,8 @@ function cookiecutter::find {
     command_value=$(cookiecutter::list \
                     | fzf \
                     | awk 'BEGIN{FS="\t"; OFS=""} {print $4}' \
-                    | perl -pe 'chomp' \
-                )
-    echo "${tag}" && echo -e "${tag}" | ghead -c -1 | pbcopy
+                    | ghead -c -1
+                 )
     if [ -n "${command_value}" ]; then
         echo "${command_value}"
     fi
