@@ -31,9 +31,9 @@ function ghq::completed::callback {
 }
 
 function ghq::cache::create::factory {
-    if type -p async_init > /dev/null; then
+    if type async_init > /dev/null; then
         ghq::cache::create::async
-    else
-        ghq::cache::create
+        return
     fi
+    ghq::cache::create
 }

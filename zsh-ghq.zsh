@@ -35,7 +35,7 @@ source "${GHQ_SRC_DIR}"/cookiecutter.zsh
 
 
 function ghq::dependences::check {
-    if ! type -p async_init > /dev/null; then
+    if ! type async_init > /dev/null; then
         message_warning "is neccesary implement async_init."
     fi
     if [ -z "${GITHUB_USER}" ]; then
