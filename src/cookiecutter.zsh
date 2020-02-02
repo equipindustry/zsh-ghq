@@ -28,9 +28,9 @@ function cookiecutter::find {
                         | ghead -c -1
                  )
 
-if [ -n "${command_value}" ]; then
-    echo -e "${command_value}"
-fi
+    if [ -n "${command_value}" ]; then
+        echo -e "${command_value}"
+    fi
 }
 
 if ! type -p cookiecutter > /dev/null; then cookiecutter::install; fi
