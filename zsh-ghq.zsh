@@ -70,10 +70,7 @@ function ghq::projects::list {
 
 # reponame
 function ghq::new {
-    local repository
-    local repository_path
-    local is_repository
-    local repository_cookiecutter
+    local repository repository_path is_repository repository_cookiecutter
     repository="${1}"
     is_repository=$(echo "${repository}" | grep -cE "${GHQ_REGEX_IS_REPOSITORY}")
 
@@ -84,7 +81,8 @@ function ghq::new {
             message_warning "Please Select one Project"
             return
         fi
-        cd "${repository_path}" || cd - && cookiecutter "${repository_cookiecutter}"
+        cd "${repository_path}" || cd - &&  \
+                cookiecutter "${repository_cookiecutter}"
         ghq::cache::clear
         return
     fi
