@@ -68,22 +68,28 @@ function ghq::projects::list {
     ghq::cache::list
 }
 
+function ghq::new::template {
+    local template repository_path
+    repository_path="$(ghq root)/github.com/${GITHUB_USER}/"
+    template="$(cookiecutter::find)"
+    if [ -z "${template}" ]; then
+        message_warning "Please Select one Project"
+        return
+    fi
+    cd "${repository_path}" || cd - &&  \
+            eval "cookiecutter ${template}" && \
+            git init && git flow init -d && \
+            ghq::cache::clear
+}
+
 # reponame
 function ghq::new {
-    local repository repository_path is_repository repository_cookiecutter
+    local repository repository_path is_repository
     repository="${1}"
     is_repository=$(echo "${repository}" | grep -cE "${GHQ_REGEX_IS_REPOSITORY}")
 
     if [ -z "${repository}" ]; then
-        repository_path="$(ghq root)/github.com/${GITHUB_USER}/"
-        repository_cookiecutter="$(cookiecutter::find)"
-        if [ -z "${repository_cookiecutter}" ]; then
-            message_warning "Please Select one Project"
-            return
-        fi
-        cd "${repository_path}" || cd - &&  \
-                cookiecutter "${repository_cookiecutter}"
-        ghq::cache::clear
+        ghq::new::template
         return
     fi
 
