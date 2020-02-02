@@ -5,14 +5,14 @@
       "author": "@slovacus",
       "type": "template",
       "description": "template for generate next",
-      "repository": "gh:equipindustry/cookiecutter-next-redux-saga.git --checkout develop"
+      "repository": "gh:equipindustry/cookiecutter-next-redux-saga --checkout develop"
     },
     {
       "name": "cookiecutter base",
       "author": "@slovacus",
       "type": "template",
       "description": "template for base project",
-      "repository": "gh:luismayta/cookiecutter-base.git --checkout develop"
+      "repository": "gh:luismayta/cookiecutter-base --checkout develop"
     },
     {
       "name": "golang service",
@@ -110,21 +110,21 @@
       "author": "@slovacus",
       "type": "module",
       "description": "template for terraform module",
-      "repository": "gh:equipindustry/cookiecutter-terraform-module.git --checkout develop"
+      "repository": "gh:equipindustry/cookiecutter-terraform-module --checkout develop"
     },
     {
       "name": "terraform module",
       "author": "@slovacus",
       "type": "module",
       "description": "template for terraform module",
-      "repository": "gh:FGtatsuro/cookiecutter-terraform-module.git --checkout develop"
+      "repository": "gh:FGtatsuro/cookiecutter-terraform-module --checkout develop"
     },
     {
       "name": "docker image",
       "author": "@slovacus",
       "type": "image",
       "description": "template for docker image",
-      "repository": "gh:equipindustry/cookiecutter-docker.git --checkout develop"
+      "repository": "gh:equipindustry/cookiecutter-docker --checkout develop"
     },
     {
       "name": "docker image",
@@ -173,14 +173,14 @@
       "author": "@slovacus",
       "type": "template",
       "description": "template for make zsh plugin",
-      "repository": "gh:equipindustry/cookiecutter-zsh-plugin.git --checkout develop"
+      "repository": "gh:equipindustry/cookiecutter-zsh-plugin --checkout develop"
     },
     {
       "name": "slide Gatsby mdx",
       "author": "@slovacus",
       "type": "slides",
       "description": "template for slides for gatsby",
-      "repository": "gh:luismayta/cookiecutter-gatsby-slides.git --checkout develop"
+      "repository": "gh:luismayta/cookiecutter-gatsby-slides --checkout develop"
     }
   ]
 }
