@@ -82,8 +82,18 @@ function ghq::new::template {
             ghq::cache::clear
 }
 
+
 # reponame
 function ghq::new {
+    local repository repository_path
+    repository="${1}"
+    repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
+    ghq create "${repository}"
+    ghq::cache::clear
+    cd "${repository_path}" || cd - && git flow init -d
+}
+
+function ghq::factory {
     local repository repository_path is_repository
     repository="${1}"
     is_repository=$(echo "${repository}" | grep -cE "${GHQ_REGEX_IS_REPOSITORY}")
@@ -99,10 +109,8 @@ function ghq::new {
         return
     fi
 
-    repository_path="$(ghq root)/github.com/${GITHUB_USER}/${repository}"
-    ghq create "${repository}"
-    ghq::cache::clear
-    cd "${repository_path}" || cd - && git flow init -d
+    ghq::new "${repository}"
+
 }
 
 function ghq::find::project {
@@ -119,7 +127,7 @@ function ghq::find::project {
 zle -N ghq::find::project
 bindkey '^P' ghq::find::project
 
-alias ghn=ghq::new
+alias ghn=ghq::factory
 
 if ! type -p ghq > /dev/null; then
     ghq::install
