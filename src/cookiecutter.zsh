@@ -23,13 +23,14 @@ function cookiecutter::list {
 function cookiecutter::find {
     local command_value
     command_value=$(cookiecutter::list \
-                    | fzf \
-                    | awk 'BEGIN{FS="\t"; OFS=""} {print $4}' \
-                    | ghead -c -1
+                        | fzf \
+                        | awk 'BEGIN{FS="\t"; OFS=""} {print $4}' \
+                        | ghead -c -1
                  )
-    if [ -n "${command_value}" ]; then
-        echo "${command_value}"
-    fi
+
+if [ -n "${command_value}" ]; then
+    echo -e "${command_value}"
+fi
 }
 
 if ! type -p cookiecutter > /dev/null; then cookiecutter::install; fi
