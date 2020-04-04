@@ -17,11 +17,13 @@ else
 	PIPENV_INSTALL:=
 endif
 
-TEAM := private
+TEAM := equipindustry
+AWS_VAULT ?= equipindustry
 PROJECT := zsh-ghq
 PROJECT_PORT := 8000
 
 PYTHON_VERSION=3.8.0
+NODE_VERSION=v12.14.1
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
@@ -83,5 +85,5 @@ setup:
 environment:
 	@echo "=====> loading virtualenv ${PYENV_NAME}..."
 	pyenv local ${PYTHON_VERSION}
-	@pipenv --venv || $(PIPENV_INSTALL) --skip-lock --python=${PYTHON_VERSION}
+	@pipenv --venv || $(PIPENV_INSTALL) --python=${PYTHON_VERSION} --skip-lock
 	@echo ${MESSAGE_HAPPY}
