@@ -23,12 +23,10 @@ function ghq::is_dir {
         return
     fi
     echo 1
-    return
 }
 
 function ghq::git::get_origin_path {
-    local target_dir
-    local origin_path
+    local target_dir origin_path
     target_dir="${1}"
     origin_path=$(cd "${target_dir}" || exit; git config --get-regexp remote.origin.url | cut -d ' ' -f 2)
     echo "${origin_path}"
