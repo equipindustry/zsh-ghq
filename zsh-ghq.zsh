@@ -78,7 +78,6 @@ function ghq::new::template {
     fi
     cd "${repository_path}" || cd - &&  \
             eval "cookiecutter ${template}" && \
-            git init && git flow init -d && \
             ghq::cache::clear
 }
 
