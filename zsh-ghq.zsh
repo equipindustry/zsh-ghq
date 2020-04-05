@@ -124,7 +124,7 @@ function ghq::find::project {
 }
 
 zle -N ghq::find::project
-bindkey '^P' ghq::find::project
+bindkey '^Xp' ghq::find::project
 
 alias ghn=ghq::factory
 
