@@ -28,7 +28,6 @@ Dependencies
     https://github.com/luismayta/zsh-notify
     https://github.com/luismayta/zsh-functions
 
-
 Installation
 ------------
 
