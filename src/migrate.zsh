@@ -13,7 +13,8 @@ function ghq::migrate::move {
     new_repo_dir="${GHQ_ROOT}/${remote_path}"
 
     if [ -e "${new_repo_dir}" ]; then
-        message_error "${new_repo_dir} already exists!!!!"
+        message_warning "${new_repo_dir} already exists!!!!"
+        return 0
     fi
     mkdir -p "${new_repo_dir%/*}"
     mv "${target_dir%/}" "${new_repo_dir}"
