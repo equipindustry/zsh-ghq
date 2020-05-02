@@ -6,8 +6,7 @@
 
 # Define a function to process the result of the job
 function ghq::async::completed::callback {
-    message_success "${1}" "${2}"
-    # async_job "${GHQ_ASYNC_NAME}" ghq::cache::create
+    message_success "${@}"
 }
 
 function ghq::async::init {
@@ -15,7 +14,7 @@ function ghq::async::init {
         async_init
         # Start a worker that will report job completion
         async_start_worker "${GHQ_ASYNC_NAME}" -u
-        async_process_results "${GHQ_ASYNC_NAME}" ghq::async::completed::callback
+        async_register_callback "${GHQ_ASYNC_NAME}" ghq::async::completed::callback
         return
     fi
 }
