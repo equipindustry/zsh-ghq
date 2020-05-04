@@ -22,10 +22,10 @@ GHQ_ASYNC_NAME="ghq_worker"
 ghq_package_name='ghq'
 
 # shellcheck source=/dev/null
-source "${GHQ_SRC_DIR}"/async.zsh
+source "${GHQ_SRC_DIR}"/base.zsh
 
 # shellcheck source=/dev/null
-source "${GHQ_SRC_DIR}"/base.zsh
+source "${GHQ_SRC_DIR}"/utils.zsh
 
 # shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/cache.zsh
@@ -35,6 +35,10 @@ source "${GHQ_SRC_DIR}"/migrate.zsh
 
 # shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/cookiecutter.zsh
+
+# shellcheck source=/dev/null
+source "${GHQ_SRC_DIR}"/async.zsh
+
 
 
 function ghq::dependences::check {
