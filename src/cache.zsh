@@ -16,10 +16,6 @@ function ghq::cache::create {
 }
 
 function ghq::cache::create::factory {
-    if type async_init > /dev/null; then
-        ghq::cache::create::async
-        return
-    fi
     ghq::cache::create
 }
 
