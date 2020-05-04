@@ -10,13 +10,13 @@ function ghq::async::completed::callback {
 }
 
 function ghq::async::init {
-    if type async_init > /dev/null; then
-        async_init
-        # Start a worker that will report job completion
-        async_start_worker "${GHQ_ASYNC_NAME}" -u
-        async_register_callback "${GHQ_ASYNC_NAME}" ghq::async::completed::callback
+    if ! type async_init > /dev/null; then
         return
     fi
+    async_init
+    # Start a worker that will report job completion
+    async_start_worker "${GHQ_ASYNC_NAME}" -u
+    async_register_callback "${GHQ_ASYNC_NAME}" ghq::async::completed::callback
 }
 
 ghq::async::init
