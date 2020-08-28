@@ -39,8 +39,6 @@ source "${GHQ_SRC_DIR}"/cookiecutter.zsh
 # shellcheck source=/dev/null
 source "${GHQ_SRC_DIR}"/async.zsh
 
-
-
 function ghq::dependences::check {
     if ! type async_init > /dev/null; then
         message_warning "is neccesary implement async_init."
@@ -65,7 +63,6 @@ function ghq::post_install {
     fi
 }
 
-
 function ghq::projects::list {
     if [ ! -e "${GHQ_CACHE_PROJECT}" ]; then
         ghq::cache::create::factory
@@ -87,7 +84,6 @@ function ghq::new::template {
             eval "cookiecutter ${template}" && \
             ghq::cache::clear
 }
-
 
 # reponame
 function ghq::new {
