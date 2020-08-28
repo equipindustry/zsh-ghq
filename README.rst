@@ -25,6 +25,7 @@ Dependencies
 .. code-block:: bash
 
     https://github.com/mafredri/zsh-async
+    https://github.com/luismayta/zsh-core
     https://github.com/luismayta/zsh-notify
     https://github.com/luismayta/zsh-functions
 
@@ -74,12 +75,12 @@ install this plugin by doing the following:
 3. Enjoy!
 
 Quick Start
-===========
+-----------
 
 - Fork this repository
 
 Usage
------
+^^^^^
 
 - Install dependences
 
