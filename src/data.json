@@ -181,6 +181,13 @@
       "type": "slides",
       "description": "template for slides for gatsby",
       "repository": "gh:luismayta/cookiecutter-gatsby-slides --checkout develop"
+    },
+    {
+      "name": "Cookiecutter ansible role",
+      "author": "@slovacus",
+      "type": "role",
+      "description": "is a role for ansible server",
+      "repository": "gh:equipindustry/cookiecutter-ansible-role"
     }
   ]
 }
