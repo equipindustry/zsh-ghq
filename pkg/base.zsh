@@ -5,6 +5,9 @@ function ghq::dependences::check {
     if [ -z "${GITHUB_USER}" ]; then
         message_warning "You should set 'git config --global github.user'."
     fi
+    if [ -z "${PROJECTS}" ]; then
+        message_warning "You should set path for projects"
+    fi
 }
 
 function ghq::install {
